@@ -13,7 +13,7 @@
         async function fetchCaseId() {
                 const response = await fetch(getCaseIdEndpoint, {
                     method: "GET",
-                    header: {}
+                    header: {"Content-Type": "application/json"}
                 });
                     const data = await response.json();
                     const caseId = data.AssignmentID;
