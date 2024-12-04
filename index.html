@@ -5,16 +5,15 @@
 <title>Network Application</title>
 </head>
 <body>
-<script src='https://areteans01.pegalabs.io/prweb/PRRestService/c11nsvc/v1/pega-embed.js' >
-    var caseId = 'C-39173';
-
-let embedElement = document.getElementById('theEmbed');
-
-embedElement.setAttribute('caseID', caseId);
-</script>
-<pega-embed id='theEmbed' action='openCase' themeID='EndeavourEnergy' casePage='assignment' appAlias='network-applications' pegaServerUrl='https://areteans01.pegalabs.io/prweb/' autoReauth='true' authService='pega' userIdentifier='NetworkGit' password='cnVsZXM=' clientId='72954902205554958023' style='width:100%'>
+<script src='https://areteans01.pegalabs.io/prweb/PRRestService/c11nsvc/v1/pega-embed.js' ></script>
+ 
+   <pega-embed id='theEmbed' action='openCase' caseID='' themeID='EndeavourEnergy' casePage='assignment' appAlias='network-applications' pegaServerUrl='https://areteans01.pegalabs.io/prweb/' autoReauth='true' authService='pega' userIdentifier='NetworkGit' password='cnVsZXM=' clientId='72954902205554958023' style='width:100%'>
 </pega-embed>
+<script>
+		var caseId = 'C-39173';
+        let embedElement = document.getElementById('theEmbed');
+        embedElement.setAttribute('caseID', caseId);
+</script>
  
 </body>
 </html>
- 
