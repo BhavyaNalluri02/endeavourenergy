@@ -5,14 +5,13 @@
 <title>Network Application</title>
 </head>
 <body>
-<script src='https://areteans01.pegalabs.io/prweb/PRRestService/c11nsvc/v1/pega-embed.js' ></script>
- 
-   <pega-embed id='theEmbed' action='openCase' caseID='' themeID='EndeavourEnergy' casePage='assignment' appAlias='network-applications' pegaServerUrl='https://areteans01.pegalabs.io/prweb/' autoReauth='true' authService='pega' userIdentifier='NetworkGit' password='cnVsZXM=' clientId='72954902205554958023' style='width:100%'>
-</pega-embed>
+    <script src='https://areteans01.pegalabs.io/prweb/PRRestService/c11nsvc/v1/pega-embed.js' ></script>
+    <pega-embed id='theEmbed' action='openAssignment' assignmentID='' themeID='EndeavourEnergy' casePage='assignmentWithStages' appAlias='network-applications' pegaServerUrl='https://areteans01.pegalabs.io/prweb/' autoReauth='true' authService='pega' userIdentifier='NetworkGit' password='cnVsZXM=' clientId='72954902205554958023' style='width:100%'>
+    </pega-embed>
 <script>
-		var caseId = 'EE-NETWORKAPPS-WORK C-39173';
+		var caseId = 'ASSIGN-WORKLIST EE-NETWORKAPPS-WORK C-39175!NEWINITIATION_FLOW';
         let embedElement = document.getElementById('theEmbed');
-        embedElement.setAttribute("caseID", caseId);
+        embedElement.setAttribute("assignmentID", caseId);
 </script>
  
 </body>
