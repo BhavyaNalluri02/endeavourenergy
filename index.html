@@ -8,59 +8,15 @@
 <script src='https://areteans01.pegalabs.io/prweb/PRRestService/c11nsvc/v1/pega-embed.js' ></script>
 <script>
 
-    // Function to call the Pega activity to get the case ID using Promises
-
-    function getCaseIdFromActivity(activityName, workClass) {
-
-      var oSafeUrl = new SafeURL("@baseclass." + activityName); // Replace with your activity name
-
-      oSafeUrl.put("pxObjClass", workClass); // Replace with your work class (optional)
- 
-      return new Promise((resolve, reject) => {
-
-        var request = pega.util.connect.asyncRequest('GET', oSafeUrl.toURL());
-
-        request.onSuccess = function(data) {
-
-          var caseId = data.getProperty("CaseID"); // Replace "CaseID" with the actual property name
-
-          resolve(caseId);
-
-        };
-
-        request.onError = function(error) {
-
-          reject(error);
-
-        };
-
-      });
-
-    }
- 
-    // Call activity to get case ID and handle success/error scenarios
-
-    getCaseIdFromActivity("OpenCase_Mashup", "EE-NetworkApps-Work-Application")
-
-      .then(caseId => {
+		var caseId = 'C-39173';
 
         let embedElement = document.getElementById('theEmbed');
 
         embedElement.setAttribute('caseID', caseId);
-
-      })
-
-      .catch(error => {
-
-        console.error("Error fetching case ID:", error);
-
-        // Handle error gracefully, e.g., display error message to user
-
-      });
 </script>
- 
-  <pega-embed id='theEmbed' action='openCase' themeID='EndeavourEnergy' casePage='assignment' appAlias='network-applications' pegaServerUrl='https://areteans01.pegalabs.io/prweb/' autoReauth='true' authService='pega' userIdentifier='NetworkGit' password='cnVsZXM=' clientId='72954902205554958023' style='width:100%'>
+<pega-embed id='theEmbed' action='openCase' themeID='EndeavourEnergy' casePage='assignment' appAlias='network-applications' pegaServerUrl='https://areteans01.pegalabs.io/prweb/' autoReauth='true' authService='pega' userIdentifier='NetworkGit' password='cnVsZXM=' clientId='72954902205554958023' style='width:100%'>
 </pega-embed>
+ 
 </body>
 </html>
  
