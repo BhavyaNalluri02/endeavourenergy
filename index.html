@@ -15,7 +15,7 @@
                     method: "GET",
                     header: {}
                 });
-                    //const data = await response.json();
+                    const data = await response.json();
                     const caseId = data.AssignmentID;
                     let embedElement = document.getElementById('theEmbed');
                     embedElement.setAttribute("assignmentID", caseId);
