@@ -5,14 +5,30 @@
 <title>Network Application</title>
 </head>
 <body>
-    <script src='https://areteans01.pegalabs.io/prweb/PRRestService/c11nsvc/v1/pega-embed.js' >
-        function displayCaseId() {
-          var caseId = pega.ui.pxThread.get("pyWorkID");
-        }
-          let embedElement = document.getElementById('theEmbed');
-          embedElement.setAttribute('caseID', caseId);
-        </script>
-        <pega-embed id='theEmbed' action='openCase' themeID='EndeavourEnergy' casePage='assignment' appAlias='network-applications' pegaServerUrl='https://areteans01.pegalabs.io/prweb/' autoReauth='true' authService='pega' userIdentifier='NetworkGit' password='cnVsZXM=' clientId='72954902205554958023' style='width:100%'>
-        </pega-embed>
+    <script src='https://areteans01.pegalabs.io/prweb/PRRestService/c11nsvc/v1/pega-embed.js' ></script>
+ 
+    function setCaseIdFromActivity(activityName, workClass) {
+      var oSafeUrl = new SafeURL("@baseclass." + activityName);
+      oSafeUrl.put("pxObjClass", workClass); 
+      var request = pega.util.connect.asyncRequest('GET', oSafeUrl.toURL());
+      request.onSuccess = function(data) {
+        var returnedCaseId = data.getProperty("CaseIDD");
+        if (returnedCaseId) {
+          embedElement.setAttribute('caseID', returnedCaseId);
+        } else 
+      };
+      request.onError = function(error) {
+        console.error("Error calling activity:", error);
+      };
+    }
+     
+     
+    setCaseIdFromActivity("OpenCase_Mashup", "EE-NetworkApps-Work-Application"); 
+    let embedElement = document.getElementById('theEmbed');
+    embedElement.setAttribute('caseID', caseId);
+     
+    <pega-embed id='theEmbed' action='openCase' themeID='EndeavourEnergy' casePage='assignment' appAlias='network-applications' pegaServerUrl='https://areteans01.pegalabs.io/prweb/' autoReauth='true' authService='pega' userIdentifier='NetworkGit' password = 'cnVsZXM='  clientId='72954902205554958023' style='width:100%'>
+    </pega-embed>
+    has context menu
 </body>
 </html>
