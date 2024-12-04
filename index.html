@@ -8,8 +8,8 @@
     <script src='https://areteans01.pegalabs.io/prweb/PRRestService/c11nsvc/v1/pega-embed.js' ></script>
  <script>
     function setCaseIdFromActivity(activityName, workClass) {
-      var oSafeUrl = new SafeURL("@baseclass." + activityName);
-      oSafeUrl.put("pxObjClass", workClass); 
+        var oSafeUrl = new SafeURL("@baseclass.OpenCase_Mashup"); 
+        oSafeUrl.put("pxObjClass", "EE-NetworkApps-Work-Application");
       var request = pega.util.connect.asyncRequest('GET', oSafeUrl.toURL());
       request.onSuccess = function(data) {
         var returnedCaseId = data.getProperty("CaseIDD");
